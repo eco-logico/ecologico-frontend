@@ -1,0 +1,7 @@
+All the fonts used in this template are 100% free. If you find any difference in file and preview, please download the required fonts below.
+
+Montserrat
+https://fonts.google.com/specimen/Montserrat?query=montserrat
+
+Inter
+https://fonts.google.com/specimen/Inter?query=inter
