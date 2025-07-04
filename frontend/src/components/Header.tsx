@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 const navigation = [
   { name: 'Home', href: '/', active: true },
-  { name: 'Sobre Nós', href: '#sobre' },
-  { name: 'Soluções', href: '#solucoes' },
-  { name: 'Contato', href: '#contato' },
+  { name: 'About Us', href: '#about' },
+  { name: 'Services', href: '#services' },
+  { name: 'Contact', href: '#contact' },
 ]
 
 export default function Header() {
@@ -34,7 +34,7 @@ export default function Header() {
                   px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ease-in-out
                   ${item.active 
                     ? 'bg-black text-white shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
+                    : 'text-green-500 hover:text-green-600 hover:bg-green-50'
                   }
                 `}
               >
@@ -49,7 +49,7 @@ export default function Header() {
               href="/demo" 
               className="bg-green-500 hover:bg-green-600 text-white px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ease-in-out shadow-sm hover:shadow-md"
             >
-              Fale Conosco
+              Let's Talk
             </Link>
           </div>
           
@@ -86,7 +86,7 @@ export default function Header() {
                     block px-4 py-3 rounded-xl text-base font-medium transition-all duration-200
                     ${item.active 
                       ? 'bg-black text-white' 
-                      : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
+                      : 'text-green-500 hover:bg-green-50 hover:text-green-600'
                     }
                   `}
                   onClick={() => setMobileMenuOpen(false)}
@@ -100,7 +100,7 @@ export default function Header() {
                   className="block w-full bg-green-500 hover:bg-green-600 text-white px-4 py-3 rounded-xl font-medium text-center transition-all duration-200 shadow-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  Fale Conosco
+                  Let's Talk
                 </Link>
               </div>
             </div>

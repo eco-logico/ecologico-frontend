@@ -6,9 +6,17 @@ import Image from 'next/image'
 export default function Hero() {
   return (
     <div className="relative min-h-screen bg-gray-50 pt-20">
-      {/* Background with curved white container */}
+      {/* Background with curved white container - fluid transition */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-white rounded-t-[80px] shadow-2xl"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-white shadow-2xl" style={{
+          borderRadius: '80px 80px 0 0',
+          clipPath: 'polygon(0% 12%, 8% 0%, 92% 0%, 100% 12%, 100% 100%, 0% 100%)'
+        }}></div>
+        {/* Additional organic curve overlay */}
+        <div className="absolute bottom-0 left-0 right-0 h-3/4 bg-white opacity-30" style={{
+          borderRadius: '120px 60px 0 0',
+          clipPath: 'polygon(0% 8%, 15% 0%, 85% 0%, 100% 8%, 100% 100%, 0% 100%)'
+        }}></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-8 py-16 lg:py-24">
@@ -46,69 +54,71 @@ export default function Hero() {
 
           {/* Right Content - Background Image with Cards */}
           <div className="relative h-[600px] lg:h-[720px]">
-            {/* Main background image - green hills */}
-            <div className="absolute inset-0 rounded-3xl overflow-hidden bg-gradient-to-br from-green-400 to-green-600">
-              {/* Rolling hills background */}
-              <div className="absolute inset-0">
-                <div className="absolute bottom-0 left-0 w-full h-3/4 bg-gradient-to-t from-green-700 via-green-600 to-green-500"></div>
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-green-800 to-transparent opacity-60"></div>
-                {/* Hill silhouettes */}
-                <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-r from-green-800 via-green-700 to-green-800 opacity-40"></div>
-              </div>
-              
-              {/* Hiker silhouette with raised hand */}
-              <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2">
-                <div className="w-24 h-32 relative">
-                  {/* Body */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-6 h-14 bg-red-600 rounded-t-lg"></div>
-                  {/* Head */}
-                  <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-600 rounded-full"></div>
-                  {/* Raised arm */}
-                  <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 translate-x-2 -rotate-45 w-8 h-1 bg-red-600 origin-left rounded-full"></div>
-                  {/* Backpack */}
-                  <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 translate-x-1 w-3 h-6 bg-red-700 rounded-sm"></div>
+            {/* Organic-shaped white frame container */}
+            <div className="absolute inset-0 bg-white shadow-2xl" style={{
+              borderRadius: '60px 120px 60px 120px',
+              clipPath: 'polygon(0% 8%, 15% 0%, 100% 0%, 100% 85%, 92% 100%, 0% 100%)'
+            }}>
+              {/* Main landscape background */}
+              <div className="absolute inset-0 overflow-hidden" style={{
+                borderRadius: '60px 120px 60px 120px',
+                clipPath: 'polygon(0% 8%, 15% 0%, 100% 0%, 100% 85%, 92% 100%, 0% 100%)'
+              }}>
+                {/* Sky gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-blue-200 via-green-100 to-green-300"></div>
+                
+                {/* Rolling hills layers */}
+                <div className="absolute inset-0">
+                  {/* Distant hills */}
+                  <div className="absolute bottom-0 left-0 w-full h-2/3">
+                    <div className="absolute bottom-0 w-full h-full bg-gradient-to-t from-green-600 via-green-500 to-green-400 opacity-70"></div>
+                    {/* Hill shapes */}
+                    <div className="absolute bottom-0 left-0 w-1/3 h-4/5 bg-green-500 rounded-t-full opacity-80"></div>
+                    <div className="absolute bottom-0 right-0 w-2/5 h-3/4 bg-green-600 rounded-t-full opacity-75"></div>
+                    <div className="absolute bottom-0 left-1/4 w-2/5 h-5/6 bg-green-400 rounded-t-full opacity-85"></div>
+                  </div>
+                  
+                  {/* Mid-ground with rocks and grass */}
+                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-green-800 via-green-700 to-transparent opacity-60"></div>
+                  
+                  {/* Foreground grass and rocks */}
+                  <div className="absolute bottom-0 left-0 w-full h-1/3">
+                    <div className="absolute bottom-0 w-full h-full bg-gradient-to-t from-green-900 to-green-700 opacity-50"></div>
+                    {/* Scattered rocks */}
+                    <div className="absolute bottom-4 left-1/4 w-3 h-2 bg-gray-600 rounded-full opacity-80"></div>
+                    <div className="absolute bottom-6 right-1/3 w-4 h-3 bg-gray-700 rounded-full opacity-75"></div>
+                    <div className="absolute bottom-2 left-2/3 w-2 h-2 bg-gray-500 rounded-full opacity-85"></div>
+                  </div>
+                </div>
+                
+                {/* Hiker in foreground with raised hand */}
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 translate-x-8">
+                  <div className="w-28 h-36 relative">
+                    {/* Body in red jacket */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-7 h-16 bg-red-600 rounded-t-lg shadow-lg"></div>
+                    {/* Head */}
+                    <div className="absolute bottom-14 left-1/2 transform -translate-x-1/2 w-5 h-5 bg-red-600 rounded-full shadow-md"></div>
+                    {/* Raised arm */}
+                    <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 translate-x-3 -rotate-45 w-10 h-1.5 bg-red-600 origin-left rounded-full shadow-sm"></div>
+                    {/* Other arm */}
+                    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 -translate-x-2 rotate-12 w-6 h-1 bg-red-600 origin-left rounded-full"></div>
+                    {/* Backpack */}
+                    <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 translate-x-1 w-4 h-8 bg-red-700 rounded-sm shadow-md"></div>
+                    {/* Legs */}
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-x-1 w-2 h-6 bg-gray-800 rounded-full"></div>
+                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-x-1 w-2 h-6 bg-gray-800 rounded-full"></div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Floating card with house */}
-            <div className="absolute top-8 right-8 bg-white rounded-2xl p-4 shadow-xl w-48 hover:shadow-2xl transition-shadow duration-300">
-              <div className="h-32 bg-gradient-to-br from-green-300 to-green-500 rounded-xl mb-3 relative overflow-hidden">
-                {/* Green field background */}
-                <div className="absolute inset-0 bg-gradient-to-t from-green-600 to-green-400"></div>
-                {/* House in field */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                  {/* House base */}
-                  <div className="w-12 h-8 bg-white rounded-sm shadow-sm"></div>
-                  {/* Roof */}
-                  <div className="w-16 h-0 border-l-[32px] border-l-transparent border-r-[32px] border-r-transparent border-b-[20px] border-b-red-500 absolute -top-5 left-1/2 transform -translate-x-1/2"></div>
-                  {/* Door */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3 h-4 bg-gray-800 rounded-t-sm"></div>
-                  {/* Window */}
-                  <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 translate-x-2 w-2 h-2 bg-blue-200 rounded-sm"></div>
-                </div>
-              </div>
-              <button className="w-full bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-full transition-colors duration-200">
-                More
-              </button>
+            {/* Circular white button with diagonal arrow */}
+            <div className="absolute top-8 right-8 bg-white rounded-full w-16 h-16 flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 cursor-pointer">
+              <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
             </div>
 
-            {/* Bottom floating elements */}
-            <div className="absolute bottom-8 left-8 flex gap-4">
-              <div className="bg-white rounded-full p-3 shadow-lg">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-                </svg>
-              </div>
-              <div className="bg-white rounded-full p-3 shadow-lg">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Decorative curved element */}
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-green-100 rounded-full opacity-50"></div>
           </div>
         </div>
 
